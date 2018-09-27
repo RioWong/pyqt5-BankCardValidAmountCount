@@ -23,7 +23,22 @@ remark、nameOnOppositeCard以及transAddr 中，将含关键字“客户名/配
 ### 7 日均存款余额
 每季度（3/6/9/12）21日-25日，“description”列中含“结息”、“利息”，“季息” 字样，且金额小于0，将四个季度结息金额算平均数后乘以1100，得出结果为日均存款余额
 ## 二 打开和运行界面
-### 1 打开界面
+本程序依赖包如下：
+openpyxl==2.2.5
+pandas==0.23.4
+PyQt5==5.11.2
+PyQt5-sip==4.19.12
+python-dateutil==2.7.3
+QScintilla==2.10.7
+StyleFrame==1.6.2
+xlrd==1.0.0
+
+直接执行  *`pip install -r requirements.txt`*  安装即可
+
+### 1 打开界面， 执行【python run.py】或者【直接打开启动网银有效流水计算.bat】
+* 注意：linux系统 只能执行 python run.py
+### 安装依赖
+
 ![start_interface](screenshot/start_interface.jpg)
 ### 2 运行时界面
 ![runnig_interface](screenshot/runnig_interface.jpg)
