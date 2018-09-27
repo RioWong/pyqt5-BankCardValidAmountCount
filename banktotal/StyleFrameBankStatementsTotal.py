@@ -90,6 +90,7 @@ class BankStatementsTotal(QtCore.QThread):
         self.count_signal.emit("【状态】开始对含有借贷关键词的流水记录进行标记!")
         keep_df, drop_df2 = exclude_loan(keep_df)
         # 3 排除同名转账
+        self.count_signal.emit("【状态】开始对**同名转账**流水记录进行标记!")
         items_lst = [x.strip() for x in
                      [self.client_name, self.spouse_name, self.parents_name, self.parents_name, self.company_name,
                       self.relatives_name] if x != ""]
@@ -100,9 +101,11 @@ class BankStatementsTotal(QtCore.QThread):
                 relatives_lst.extend(item_lst)
         keep_df, drop_df3 = exclude_relatives(keep_df, relatives_lst)
         # 4 排除流水中所有支出 ，即排除所有流水为正值的记录
+        self.count_signal.emit("【状态】开始对**支出类型**流水记录进行标记!")
         drop_df4 = keep_df[keep_df['amountMoney'] >= 0]
         keep_df = keep_df[keep_df['amountMoney'] < 0]
         # 5 特殊情况处理：支付宝/微信流水处理
+        self.count_signal.emit("【状态】开始对**支付宝转账提现和微信零钱提现**流水记录进行标记!")
         drop_df = pd.concat([drop_df1, drop_df2, drop_df3, drop_df4])
         drop_df['是否有效流水'] = 0
         drop_df.drop_duplicates(inplace=True)
