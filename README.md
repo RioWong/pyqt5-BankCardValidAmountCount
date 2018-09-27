@@ -33,8 +33,11 @@ remark、nameOnOppositeCard以及transAddr 中，将含关键字“客户名/配
 会将对有效流水的记录进行标记：将有效记录的amountMoney列标记为绿色
 ![result_all](screenshot/result_all.jpg)
 * 各月份有效流水统计
+
 ![result_month_total](screenshot/result_month_total.jpg)
+
 * 日均存款余额统计
+
 ![日均存款余额](screenshot/%E6%97%A5%E5%9D%87%E5%AD%98%E6%AC%BE%E4%BD%99%E9%A2%9D.jpg)
 * 客户信息
 ![result_client_info](screenshot/result_client_info.jpg)
