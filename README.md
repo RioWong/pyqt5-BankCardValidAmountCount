@@ -25,12 +25,19 @@ remark、nameOnOppositeCard以及transAddr 中，将含关键字“客户名/配
 ## 二 打开和运行界面
 本程序依赖包如下：
 openpyxl==2.2.5
+
 pandas==0.23.4
+
 PyQt5==5.11.2
+
 PyQt5-sip==4.19.12
+
 python-dateutil==2.7.3
+
 QScintilla==2.10.7
+
 StyleFrame==1.6.2
+
 xlrd==1.0.0
 
 直接执行  *`pip install -r requirements.txt`*  安装即可
