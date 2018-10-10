@@ -3,6 +3,8 @@
 
 
 def exclude_relatives(df, relatives_lst):
+    # 如果打算对 "description"列也进行筛选，将use_descripton的值改为"是"
+    use_descripton = "否"
     """
     :param df: 网银流水df
     :param relatives_lst: ['客户名', '配偶名', '客户公司名', '客户公司股东姓名', '指定的客户亲属姓名']
@@ -11,8 +13,12 @@ def exclude_relatives(df, relatives_lst):
     df['nameOnOppositeCard'].fillna('', inplace=True)
     df['remark'].fillna('', inplace=True)
     df['transAddr'].fillna('', inplace=True)
-
-    df['tmp_col'] = df['remark'] + "|||" + df['nameOnOppositeCard'] + "|||" + df['transAddr']
+    df['description'].fillna('', inplace=True)
+    if use_descripton == "否":
+        df['tmp_col'] = df['remark'] + "|||" + df['nameOnOppositeCard'] + "|||" + df['transAddr']
+    else:
+        df['tmp_col'] = df['remark'] + "|||" + df['nameOnOppositeCard'] + "|||" + \
+                    df['transAddr'] + "|||" + df['description']
     exclude_words = "|".join(relatives_lst)
     drop_df = df[df['tmp_col'].str.contains(exclude_words)]
     keep_df = df[~df['tmp_col'].str.contains(exclude_words)]
